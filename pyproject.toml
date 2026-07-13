@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siteprobe"
+version = "0.1.0"
+description = "Tiny SEO site-health CLI: broken-link/redirect crawler + sitemap.xml validator. No paid APIs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "KlientLab" }]
+keywords = ["seo", "crawler", "broken-links", "404", "redirects", "sitemap", "hreflang", "site-audit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Internet :: WWW/HTTP :: Site Management :: Link Checking",
+  "Environment :: Console",
+]
+dependencies = [
+  "requests>=2.28",
+  "beautifulsoup4>=4.11",
+  "lxml>=4.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/trendbender/siteprobe"
+Repository = "https://github.com/trendbender/siteprobe"
+Tools = "https://klientlab.ru/tools/"
+
+[project.scripts]
+siteprobe = "siteprobe.cli:main"
+
+[tool.setuptools]
+packages = ["siteprobe"]
