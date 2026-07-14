@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "siteprobe"
+name = "sitehealth"
 version = "0.1.0"
 description = "Tiny SEO site-health CLI: broken-link/redirect crawler + sitemap.xml validator. No paid APIs."
 readme = "README.md"
@@ -25,12 +25,12 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/trendbender/siteprobe"
-Repository = "https://github.com/trendbender/siteprobe"
+Homepage = "https://github.com/trendbender/sitehealth"
+Repository = "https://github.com/trendbender/sitehealth"
 Tools = "https://klientlab.ru/tools/"
 
 [project.scripts]
-siteprobe = "siteprobe.cli:main"
+sitehealth = "sitehealth.cli:main"
 
 [tool.setuptools]
-packages = ["siteprobe"]
+packages = ["sitehealth"]

@@ -1,4 +1,4 @@
-"""siteprobe crawl — link crawler / 404 & redirect checker.
+"""sitehealth crawl — link crawler / 404 & redirect checker.
 
 Two-phase: (1) fully crawl up to --max-pages pages and extract internal links;
 (2) HEAD-check every discovered link that wasn't reached — so no link is left
@@ -13,7 +13,7 @@ import requests
 from bs4 import BeautifulSoup
 
 DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; siteprobe/0.1; +https://github.com/trendbender/siteprobe)"
+    "User-Agent": "Mozilla/5.0 (compatible; sitehealth/0.1; +https://github.com/trendbender/sitehealth)"
 }
 
 
@@ -129,7 +129,7 @@ def crawl(start_url, max_pages, max_depth, timeout):
 
 
 def build_report(result, start_url):
-    L = ["siteprobe — link crawl / 404 check", f"Site: {start_url}",
+    L = ["sitehealth — link crawl / 404 check", f"Site: {start_url}",
          f"Pages fully crawled: {result['pages_crawled']}"]
     if result["links_checked"]:
         L.append(f"Extra links checked (HEAD): {result['links_checked']}")
@@ -156,7 +156,7 @@ def build_report(result, start_url):
 
 
 def run(argv=None):
-    p = argparse.ArgumentParser(prog="siteprobe crawl", description="Link crawler / 404 & redirect checker")
+    p = argparse.ArgumentParser(prog="sitehealth crawl", description="Link crawler / 404 & redirect checker")
     p.add_argument("url", help="Start URL (e.g. https://example.com)")
     p.add_argument("--max-pages", type=int, default=500, help="Max pages to fully crawl (default 500); all discovered links are still status-checked")
     p.add_argument("--depth", type=int, default=10, help="Max crawl depth (default 10)")

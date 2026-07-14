@@ -1,4 +1,4 @@
-# siteprobe
+# sitehealth
 
 A tiny, dependency-light **SEO site-health CLI**. Two jobs, no paid APIs:
 
@@ -9,19 +9,19 @@ Runs locally. Output is a plain-text report (stdout or `--report-file`).
 
 ## Install
 ```bash
-pip install siteprobe
+pip install sitehealth
 ```
 
 ## Usage
 ```bash
 # broken links + redirects
-siteprobe crawl https://example.com --max-pages 300
+sitehealth crawl https://example.com --max-pages 300
 
 # sitemap health (auto-discovers the sitemap)
-siteprobe sitemap https://example.com
+sitehealth sitemap https://example.com
 
 # point at an explicit sitemap, save a report
-siteprobe sitemap https://example.com --sitemap https://example.com/sitemap_index.xml --report-file out.txt
+sitehealth sitemap https://example.com --sitemap https://example.com/sitemap_index.xml --report-file out.txt
 ```
 
 ### `crawl` options
@@ -42,7 +42,7 @@ siteprobe sitemap https://example.com --sitemap https://example.com/sitemap_inde
 
 ## Example output
 ```
-siteprobe — link crawl / 404 check
+sitehealth — link crawl / 404 check
 Site: https://example.com
 Pages fully crawled: 128
 OK (2xx): 121

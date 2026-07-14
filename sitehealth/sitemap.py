@@ -1,4 +1,4 @@
-"""siteprobe sitemap — sitemap.xml validator.
+"""sitehealth sitemap — sitemap.xml validator.
 
 Discovers the sitemap (robots.txt / common paths) or takes it directly, walks
 sitemap-index recursion, checks every URL's status, and flags hreflang alternates
@@ -12,7 +12,7 @@ from urllib.parse import urljoin
 import requests
 
 DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; siteprobe/0.1; +https://github.com/trendbender/siteprobe)"
+    "User-Agent": "Mozilla/5.0 (compatible; sitehealth/0.1; +https://github.com/trendbender/sitehealth)"
 }
 SM = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 XH = "{http://www.w3.org/1999/xhtml}"
@@ -104,7 +104,7 @@ def check_url(url, timeout):
 
 
 def build_report(sitemap_url, all_urls, results, sitemaps_checked, elapsed):
-    L = ["siteprobe — sitemap check", f"Sitemap: {sitemap_url}",
+    L = ["sitehealth — sitemap check", f"Sitemap: {sitemap_url}",
          f"Sitemaps checked: {len(sitemaps_checked)}", f"URLs in sitemap: {len(all_urls)}",
          f"Time: {elapsed:.0f}s", ""]
     broken = [(u, st) for u, (st, _) in results.items() if st <= 0 or st >= 400]
@@ -144,7 +144,7 @@ def build_report(sitemap_url, all_urls, results, sitemaps_checked, elapsed):
 
 
 def run(argv=None):
-    p = argparse.ArgumentParser(prog="siteprobe sitemap", description="Sitemap.xml validator")
+    p = argparse.ArgumentParser(prog="sitehealth sitemap", description="Sitemap.xml validator")
     p.add_argument("url", help="Site base URL or direct sitemap URL")
     p.add_argument("--sitemap", help="Explicit sitemap URL (skips discovery)")
     p.add_argument("--timeout", type=int, default=10)
@@ -163,7 +163,7 @@ def run(argv=None):
     all_urls, sitemaps_checked = collect_all_urls(sitemap_url, a.timeout)
     print(f"Found {len(all_urls)} URLs in {len(sitemaps_checked)} sitemap(s)", file=sys.stderr)
     if a.no_check:
-        L = [f"siteprobe — sitemap listing ({len(all_urls)} URLs in {len(sitemaps_checked)} sitemap(s), statuses NOT checked)", ""]
+        L = [f"sitehealth — sitemap listing ({len(all_urls)} URLs in {len(sitemaps_checked)} sitemap(s), statuses NOT checked)", ""]
         L += [e["loc"] for e in all_urls]
         report = "\n".join(L)
         if a.report_file:
