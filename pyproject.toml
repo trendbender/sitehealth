@@ -9,7 +9,7 @@ description = "Tiny SEO site-health CLI: broken-link/redirect crawler + sitemap.
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "KlientLab" }]
+authors = [{ name = "4Queries" }]
 keywords = ["seo", "crawler", "broken-links", "404", "redirects", "sitemap", "hreflang", "site-audit"]
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -27,7 +27,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/trendbender/sitehealth"
 Repository = "https://github.com/trendbender/sitehealth"
-Tools = "https://klientlab.ru/tools/"
+Tools = "https://4queries.com/tools/"
 
 [project.scripts]
 sitehealth = "sitehealth.cli:main"

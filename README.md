@@ -59,4 +59,4 @@ Redirects (3xx): 4
 - Respect target sites: there is a small delay between requests; keep `--max-pages` sane on sites you don't own.
 
 ## License
-MIT © 2026 KlientLab. Part of our open SEO toolkit — see **https://klientlab.ru/tools/**.
+MIT © 2026 4Queries. Part of our open SEO toolkit — see **https://4queries.com/tools/**.
